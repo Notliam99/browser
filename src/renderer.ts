@@ -4,3 +4,23 @@
 // nodeIntegration is set to true in webPreferences.
 // Use preload.js to selectively enable features
 // needed in the renderer process.
+// const calculateLayoutSize = () => {
+//   const webview = document.querySelector<HTMLDivElement>("webview");
+//   const windowWidth = document.documentElement.clientWidth;
+//   const webviewHeight = document.documentElement.clientHeight;
+//   webview.style.width = windowWidth + "px";
+//   webview.style.height = webviewHeight + "px";
+// };
+
+window.addEventListener("DOMContentLoaded", () => {
+  /* calculateLayoutSize(); */
+
+  const webview = document.querySelector<any>("webview")
+
+  webview.addEventListener("dom-ready", function() {
+    webview.openDevTools();
+  });
+
+  // // Dynamic resize function (responsive)
+  // window.onresize = calculateLayoutSize;
+});
